@@ -6,10 +6,11 @@ import me.flamingo.resourceful.structure.ResourcePack
 import java.io.File
 import kotlin.io.path.exists
 
+@Suppress("Unused")
 class ResourcePackTest : ShouldSpec(
     {
         val exampleResourcepack = File(ClassLoader.getSystemResource("example_resourcepack").toURI()).toPath()
-        val resourcePack = _root_ide_package_.me.flamingo.resourceful.structure.ResourcePack(exampleResourcepack)
+        val resourcePack = ResourcePack(exampleResourcepack)
     
         should("example resource pack should be recursively valid") {
             resourcePack.loop { 
