@@ -1,4 +1,4 @@
-package io.github.flamingfire0.resourceful.backend.structure.pack
+package io.github.flamingfire0.resourceful.structure.pack
 
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.shouldBe
