@@ -16,8 +16,16 @@ import me.flamingo.resourceful.structure.assets.textures.TexturesDirectory
 import me.flamingo.resourceful.structure.assets.waypoint_style.WaypointStylesDirectory
 import me.flamingo.resourceful.structure.generic.DirectoryBacked
 import me.flamingo.resourceful.structure.generic.PathBacked
+import me.flamingo.resourceful.structure.generic.ResourceContainerDirectory
 import java.nio.file.Path
 
+/**
+ * A directory containing most [ResourceContainerDirectory]s.
+ * 
+ * @author FlamingFire0
+ * @since 0.1.0
+ * @see ResourceContainerDirectory
+ */
 class Namespace(override val path: Path): DirectoryBacked {
     val atlases     = AtlasesDirectory(path.resolve("atlases"))
     val blockStates = BlockStatesDirectory(path.resolve("blockstates"))

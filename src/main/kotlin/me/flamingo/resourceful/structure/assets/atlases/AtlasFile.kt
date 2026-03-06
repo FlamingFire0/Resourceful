@@ -1,16 +1,24 @@
 package me.flamingo.resourceful.structure.assets.atlases
 
 import kotlinx.serialization.json.JsonObject
-import me.flamingo.resourceful.json
-import me.flamingo.resourceful.structure.generic.FileBacked
-import me.flamingo.resourceful.structure.generic.ResourceContainer
+import me.flamingo.resourceful.Json
+import me.flamingo.resourceful.structure.generic.JsonFile
 import java.nio.file.Path
 import kotlin.io.path.readText
 
-class AtlasFile(override val path: Path): FileBacked, ResourceContainer<JsonObject> {
+/**
+ * A JSON file controlling which textures are included in an atlas.
+ * 
+ * Location: /assets/{namespace}/atlases/.../{file}.json
+ * 
+ * @author FlamingFire0
+ * @since 0.1.0
+ * @see AtlasesDirectory
+ */
+class AtlasFile(override val path: Path): JsonFile<JsonObject>() {
     override val fileExtension: String = "json"
     override fun resolve(): JsonObject? {
         if (!isValid()) return null
-        return json.decodeFromString(path.readText())
+        return Json.decodeFromString(path.readText())
     }
 }

@@ -4,6 +4,13 @@ import java.nio.file.Path
 import kotlin.io.path.isRegularFile
 import kotlin.io.path.walk
 
+/**
+ * A directory that contains resources.
+ * 
+ * @author FlamingFire0
+ * @since 0.1.0
+ * @see ResourceContainer
+ */
 abstract class ResourceContainerDirectory<T: PathBacked>(val constructor: (Path) -> T): DirectoryBacked, ResourceContainer<Set<T>> {
     
     private var _children: Set<T>? = null

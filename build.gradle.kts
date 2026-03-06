@@ -1,16 +1,25 @@
 plugins {
     alias(libs.plugins.kotlin.jvm)
-    alias(libs.plugins.shadow)
     alias(libs.plugins.kotlin.serialization)
+    `java-library`
+    `maven-publish`
 }
 
 group = "me.flamingo"
-version = "1.0-SNAPSHOT"
+version = "0.1.0"
 
 dependencies {
-    implementation(libs.kotlinx.serialization.json)
-    
+    api(libs.kotlinx.serialization.json)
     testImplementation(libs.bundles.testing)
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            artifactId = "resourceful"
+            from(components["java"])
+        }
+    }
 }
 
 tasks.test { useJUnitPlatform() }

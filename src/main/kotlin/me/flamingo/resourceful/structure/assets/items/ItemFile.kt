@@ -1,16 +1,24 @@
 package me.flamingo.resourceful.structure.assets.items
 
 import kotlinx.serialization.json.JsonObject
-import me.flamingo.resourceful.json
-import me.flamingo.resourceful.structure.generic.FileBacked
-import me.flamingo.resourceful.structure.generic.ResourceContainer
+import me.flamingo.resourceful.Json
+import me.flamingo.resourceful.structure.generic.JsonFile
 import java.nio.file.Path
 import kotlin.io.path.readText
 
-class ItemFile(override val path: Path): FileBacked, ResourceContainer<JsonObject> {
+/**
+ * A JSON file controlling the rendering of items.
+ * 
+ * Location: /assets/{namespace}/items/.../{file}.json
+ * 
+ * @author FlamingFire0
+ * @since 0.1.0
+ * @see ItemsDirectory
+ */
+class ItemFile(override val path: Path): JsonFile<JsonObject>() {
     override val fileExtension: String = "json"
     override fun resolve(): JsonObject? {
         if (!isValid()) return null
-        return json.decodeFromString(path.readText())
+        return Json.decodeFromString(path.readText())
     }
 }

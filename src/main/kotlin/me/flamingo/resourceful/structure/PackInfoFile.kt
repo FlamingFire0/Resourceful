@@ -1,16 +1,25 @@
 package me.flamingo.resourceful.structure
 
 import kotlinx.serialization.json.JsonObject
-import me.flamingo.resourceful.json
-import me.flamingo.resourceful.structure.generic.FileBacked
-import me.flamingo.resourceful.structure.generic.ResourceContainer
+import me.flamingo.resourceful.Json
+import me.flamingo.resourceful.structure.generic.JsonFile
+import me.flamingo.resourceful.structure.generic.ResourceContainerDirectory
 import java.nio.file.Path
 import kotlin.io.path.readText
 
-class PackInfoFile(override val path: Path): FileBacked, ResourceContainer<JsonObject> {
+/**
+ * A MCMETA file that holds additional information about a pack.
+ * 
+ * Location: /pack.mcmeta
+ * 
+ * @author FlamingFire0
+ * @since 0.1.0
+ * @see ResourceContainerDirectory
+ */
+class PackInfoFile(override val path: Path): JsonFile<JsonObject>() {
     override val fileExtension: String = "mcmeta"
     override fun resolve(): JsonObject? {
         if (!isValid()) return null
-        return json.decodeFromString(path.readText())
+        return Json.decodeFromString(path.readText())
     }
 }

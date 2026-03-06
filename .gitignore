@@ -46,3 +46,4 @@ bin/
 .DS_Store
 
 src/test/resources/example_resourcepack/
+!src/test/resources/example_resourcepack/source
