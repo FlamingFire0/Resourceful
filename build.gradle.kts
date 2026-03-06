@@ -9,6 +9,7 @@ plugins {
 
 group = "io.github.flamingfire0"
 version = "0.1.0"
+description = "A Kotlin library for creating, parsing, and modifying Minecraft Resource Packs."
 
 dependencies {
     api(libs.kotlinx.serialization.json)
@@ -27,7 +28,6 @@ mavenPublishing {
     
     pom {
         name = "Resourceful"
-        description = "Your description here"
         url = "https://github.com/FlamingFire0/Resourceful"
         licenses {
             license {
