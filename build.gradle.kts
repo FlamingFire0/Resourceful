@@ -29,6 +29,7 @@ mavenPublishing {
     pom {
         name = "Resourceful"
         url = "https://github.com/FlamingFire0/Resourceful"
+        description = project.description
         licenses {
             license {
                 name = "Apache-2.0"
