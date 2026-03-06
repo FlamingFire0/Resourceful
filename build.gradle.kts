@@ -18,7 +18,10 @@ kotlin {
     jvmToolchain(libs.versions.java.get().toInt())
 }
 
-tasks.test { useJUnitPlatform() }
+tasks.test { 
+    outputs.upToDateWhen { false } // always run tests
+    useJUnitPlatform()
+}
 
 mavenPublishing {
     publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.CENTRAL_PORTAL)

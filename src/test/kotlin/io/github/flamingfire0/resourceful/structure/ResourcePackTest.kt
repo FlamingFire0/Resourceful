@@ -8,7 +8,10 @@ import kotlin.io.path.exists
 @Suppress("Unused")
 class ResourcePackTest : ShouldSpec(
     {
-        val exampleResourcepack = File(ClassLoader.getSystemResource("example_resourcepack").toURI()).toPath()
+        val resourceUrl = checkNotNull(ClassLoader.getSystemResource("example_resourcepack")) {
+            "Test resource 'example_resourcepack' not found on classpath — check src/test/resources/"
+        }
+        val exampleResourcepack = File(resourceUrl.toURI()).toPath()
         val resourcePack = ResourcePack(exampleResourcepack)
     
         should("example resource pack should be recursively valid") {
