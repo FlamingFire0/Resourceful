@@ -17,7 +17,7 @@ sealed interface PathBacked {
     
     fun loop(function: (PathBacked) -> Unit) {
         function(this)
-        if(this is DirectoryBacked) children.forEach { it.loop(function) }
+        if(this is DirectoryBacked) children.get().forEach { it.loop(function) }
     }
     
 }

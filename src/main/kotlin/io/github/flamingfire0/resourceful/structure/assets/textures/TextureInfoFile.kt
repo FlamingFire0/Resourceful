@@ -1,6 +1,6 @@
 package io.github.flamingfire0.resourceful.structure.assets.textures
 
-import io.github.flamingfire0.resourceful.Json
+import io.github.flamingfire0.resourceful.helper.Json
 import io.github.flamingfire0.resourceful.structure.generic.JsonFile
 import kotlinx.serialization.json.JsonObject
 import java.nio.file.Path

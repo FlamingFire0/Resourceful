@@ -1,5 +1,6 @@
 package io.github.flamingfire0.resourceful.structure
 
+import io.github.flamingfire0.resourceful.helper.caching.CacheSet
 import io.github.flamingfire0.resourceful.structure.generic.DirectoryBacked
 import io.github.flamingfire0.resourceful.structure.generic.ImageFile
 import io.github.flamingfire0.resourceful.structure.generic.PathBacked
@@ -21,5 +22,5 @@ class ResourcePack(override val path: Path): DirectoryBacked {
     val iconFile: ImageFile = ImageFile(path.resolve("pack.png"))
     
     override fun isValid(): Boolean = super.isValid() && packInfoFile.isValid() && assetsDirectory.isValid()
-    override val children: Set<PathBacked> = setOf(packInfoFile, assetsDirectory, iconFile)
+    override val children: CacheSet<PathBacked> = CacheSet(packInfoFile, assetsDirectory, iconFile)
 }

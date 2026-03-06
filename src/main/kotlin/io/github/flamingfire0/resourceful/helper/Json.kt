@@ -1,4 +1,4 @@
-package io.github.flamingfire0.resourceful
+package io.github.flamingfire0.resourceful.helper
 
 import kotlinx.serialization.json.Json
 

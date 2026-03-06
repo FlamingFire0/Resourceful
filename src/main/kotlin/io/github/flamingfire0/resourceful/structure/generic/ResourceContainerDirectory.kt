@@ -1,5 +1,6 @@
 package io.github.flamingfire0.resourceful.structure.generic
 
+import io.github.flamingfire0.resourceful.helper.caching.CacheSet
 import java.nio.file.Path
 import kotlin.io.path.isRegularFile
 import kotlin.io.path.walk
@@ -12,9 +13,7 @@ import kotlin.io.path.walk
  * @see ResourceContainer
  */
 abstract class ResourceContainerDirectory<T: PathBacked>(val constructor: (Path) -> T): DirectoryBacked, ResourceContainer<Set<T>> {
-    
-    private var _children: Set<T>? = null
-    final override val children: Set<T> get() = _children ?: resolve().also { _children = it } ?: emptySet()
+    override val children: CacheSet<T> = CacheSet { resolve() ?: emptySet() }
     
     final override fun resolve(): Set<T>? {
         if(!isValid()) return null

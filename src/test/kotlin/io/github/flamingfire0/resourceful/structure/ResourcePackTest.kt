@@ -1,8 +1,7 @@
-package io.github.flamingfire0.resourceful.structure.pack
+package io.github.flamingfire0.resourceful.structure
 
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.shouldBe
-import io.github.flamingfire0.resourceful.structure.ResourcePack
 import java.io.File
 import kotlin.io.path.exists
 

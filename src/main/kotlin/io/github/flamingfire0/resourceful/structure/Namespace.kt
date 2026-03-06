@@ -1,5 +1,6 @@
 package io.github.flamingfire0.resourceful.structure
 
+import io.github.flamingfire0.resourceful.helper.caching.CacheSet
 import io.github.flamingfire0.resourceful.structure.assets.atlases.AtlasesDirectory
 import io.github.flamingfire0.resourceful.structure.assets.blockstates.BlockStatesDirectory
 import io.github.flamingfire0.resourceful.structure.assets.equipment.EquipmentDirectory
@@ -43,7 +44,7 @@ class Namespace(override val path: Path): DirectoryBacked {
     val soundDefinitions: SoundDefinitions =
         SoundDefinitions(path.resolve("sounds.json"))
     
-    override val children: Set<PathBacked> = setOf(
+    override val children: CacheSet<PathBacked> = CacheSet { setOf(
         atlases,
         blockStates,
         equipment,
@@ -59,5 +60,5 @@ class Namespace(override val path: Path): DirectoryBacked {
         textures,
         waypointStyle,
         soundDefinitions,
-    )
+    ) }
 }

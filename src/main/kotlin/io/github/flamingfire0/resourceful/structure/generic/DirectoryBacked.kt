@@ -1,5 +1,6 @@
 package io.github.flamingfire0.resourceful.structure.generic
 
+import io.github.flamingfire0.resourceful.helper.caching.CacheSet
 import kotlin.io.path.isDirectory
 
 /**
@@ -11,5 +12,5 @@ import kotlin.io.path.isDirectory
  */
 interface DirectoryBacked: PathBacked {
     override fun isValid(): Boolean = super.isValid() && path.isDirectory()
-    val children: Set<PathBacked>
+    val children: CacheSet<PathBacked>
 }
