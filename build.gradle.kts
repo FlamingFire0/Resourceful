@@ -1,11 +1,13 @@
+import com.vanniktech.maven.publish.SonatypeHost
+
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.maven.publish)
     `java-library`
-    `maven-publish`
 }
 
-group = "me.flamingo"
+group = "io.github.flamingfire0"
 version = "0.1.0"
 
 dependencies {
@@ -13,17 +15,36 @@ dependencies {
     testImplementation(libs.bundles.testing)
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            artifactId = "resourceful"
-            from(components["java"])
-        }
-    }
+kotlin {
+    jvmToolchain(libs.versions.java.get().toInt())
 }
 
 tasks.test { useJUnitPlatform() }
 
-kotlin {
-    jvmToolchain(libs.versions.java.get().toInt())
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    signAllPublications()
+    
+    pom {
+        name = "Resourceful"
+        description = "Your description here"
+        url = "https://github.com/FlamingFire0/Resourceful"
+        licenses {
+            license {
+                name = "Apache-2.0"
+                url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+            }
+        }
+        developers {
+            developer {
+                id = "flamingfire0"
+                name = "Flamingo"
+                email = "flamingfire0@proton.me"
+                url = "https://github.com/FlamingFire0"
+            }
+        }
+        scm {
+            url = "https://github.com/FlamingFire0/Resourceful"
+        }
+    }
 }
