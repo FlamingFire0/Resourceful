@@ -15,5 +15,4 @@ import java.nio.file.Path
  * @see SoundsDirectory
  * @see Namespace
  */
-class SoundDefinitions(override val path: Path): JsonFile<JsonObject>() {
-}
+class SoundDefinitions(override val path: Path): JsonFile<JsonObject>()
