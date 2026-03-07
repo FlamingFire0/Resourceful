@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "io.github.flamingfire0"
-version = "0.1.0"
+version = "0.1.0-SNAPSHOT"
 description = "A Kotlin library for creating, parsing, and modifying Minecraft Resource Packs."
 
 dependencies {
