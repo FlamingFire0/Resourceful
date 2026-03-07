@@ -1,6 +1,6 @@
 package io.github.flamingfire0.resourceful.structure.generic
 
-import io.github.flamingfire0.resourceful.helper.caching.CacheSet
+import io.github.flamingfire0.resourceful.helper.caching.Cache.CacheSet
 import kotlin.io.path.isDirectory
 
 /**

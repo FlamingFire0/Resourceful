@@ -7,6 +7,6 @@ package io.github.flamingfire0.resourceful.structure.generic
  * @since 0.1.0
  * @see FileBacked
  */
-abstract class JsonFile<T>: FileBacked, ResourceContainer<T> {
+abstract class JsonFile<T: Any>: FileBacked, ResourceContainer<T>() {
     override val fileExtension: String = "json"
 }

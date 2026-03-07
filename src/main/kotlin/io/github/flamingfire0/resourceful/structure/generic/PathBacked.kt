@@ -19,5 +19,4 @@ sealed interface PathBacked {
         function(this)
         if(this is DirectoryBacked) children.get().forEach { it.loop(function) }
     }
-    
 }
